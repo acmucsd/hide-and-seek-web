@@ -6,6 +6,7 @@ import { Form, Input, message, Button } from 'antd';
 import { useForm, Controller } from 'react-hook-form';
 import { registerUser } from '../../../actions/auth';
 import { useParams, useHistory, Link } from 'react-router-dom';
+import { DIMENSION_ID } from '../../../configs';
 
 function RegisterPage() {
   const params: any = useParams();
@@ -18,7 +19,7 @@ function RegisterPage() {
   
     registerUser(DIMENSION_ID, values).then((res) => {
       message.success('Registered! Redirecting to login page');
-      history.push('/dimensions/' + DIMENSION_ID + '/login');
+      history.push('/login');
     });
   }
   return (
@@ -85,7 +86,7 @@ function RegisterPage() {
               </form>
             </Form>
             <div className='login-info'>
-              <Link to='./login'>Login into Dimension ({DIMENSION_ID}) here</Link>
+              <Link to='./login'>Login here</Link>
             </div>
           </div>
         </Card>

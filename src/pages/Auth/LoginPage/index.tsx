@@ -7,6 +7,7 @@ import { useForm, Controller } from 'react-hook-form';
 import { loginUser, getUserFromToken } from '../../../actions/auth';
 import { useParams, useHistory, Link } from 'react-router-dom';
 import UserContext from '../../../UserContext';
+import { DIMENSION_ID } from '../../../configs';
 
 function LoginPage() {
   let {user, setUser} = useContext(UserContext);
@@ -20,11 +21,11 @@ function LoginPage() {
     loginUser(DIMENSION_ID, values).then((res: any) => {
       setUser(getUserFromToken(res));
       message.success('Logged in!');
-      history.push('/dimensions/' + DIMENSION_ID);
+      history.push('/');
     });
   }
   useEffect(() => {
-    user.loggedIn && message.info('Already logged in!') && history.push('/dimensions/' + DIMENSION_ID);
+    user.loggedIn && message.info('Already logged in!') && history.push('/');
   }, []);
   return (
     <DefaultLayout>
@@ -74,7 +75,7 @@ function LoginPage() {
               </form>
             </Form>
             <div className='register-info'>
-              <Link to='./register'>Or Register an Account for Dimension ({DIMENSION_ID}) here</Link>
+              <Link to='./register'>Or Register an Account here</Link>
             </div>
           </div>
         </Card>

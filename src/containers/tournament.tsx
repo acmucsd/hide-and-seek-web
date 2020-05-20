@@ -7,6 +7,7 @@ import { useParams, useHistory } from "react-router-dom";
 import TournamentContext from '../contexts/tournament';
 import { getTournamentFromDimension } from '../actions/dimensions';
 import { message } from "antd";
+import { DIMENSION_ID } from "../configs";
 
 /**
  * Auto stores tournament into context 

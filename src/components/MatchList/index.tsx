@@ -6,6 +6,7 @@ import { Link, useParams } from 'react-router-dom';
 import { Table } from 'antd';
 import MatchActionButton from '../MatchActionButton';
 import UserContext from '../../UserContext';
+import { DIMENSION_ID } from '../../configs';
 
 const MatchList = (props: 
   {
@@ -23,12 +24,12 @@ const MatchList = (props:
   {
     if (params.tournamentID) {
       return (
-        <Link to={`/dimensions/${DIMENSION_ID}/tournaments/${params.tournamentID}/match/${match.id}`}>{match.name}</Link>
+        <Link to={`/tournaments/${params.tournamentID}/match/${match.id}`}>{match.name}</Link>
       )
     }
     else {
       return (
-        <Link to={`/dimensions/${DIMENSION_ID}/match/${match.id}`}>{match.name}</Link>
+        <Link to={`/match/${match.id}`}>{match.name}</Link>
       )
     }
   }
@@ -46,7 +47,7 @@ const MatchList = (props:
           <div>
             {
               agents.map((a) => {
-                return <Link className='profile-link' target='_blank' rel="noopener noreferrer" to={`/dimensions/${DIMENSION_ID}/tournaments/${params.tournamentID}/user/${a.tournamentID.id}`}>{a.name}</Link>
+                return <Link className='profile-link' target='_blank' rel="noopener noreferrer" to={`/tournaments/${params.tournamentID}/user/${a.tournamentID.id}`}>{a.name}</Link>
               })
             }
           </div>

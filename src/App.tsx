@@ -46,31 +46,31 @@ function App() {
           <UserProvider value={{user: user, setUser: setUser}}>
             <Route path="/" exact component={DimensionPage} />
             <Route path="/register" exact component={RegisterPage} />
-            <Route path="/dimensions/:id/login" exact component={LoginPage} />
+            <Route path="/login" exact component={LoginPage} />
             <Route path="/dimensions/:id/matches/:matchID" exact component={MatchPage} />
 
             <TournamentProvider value={{tournament: tournament, setTournament: setTournament}}>
               <Route 
-                path="/dimensions/:id/tournaments/:tournamentID" 
+                path="/tournaments/:tournamentID" 
                 exact 
                 render={() => <SetupTournament component={<TournamentPage />} />}
               />
               <Route 
-                path="/dimensions/:id/tournaments/:tournamentID/ranks" 
+                path="/tournaments/:tournamentID/ranks" 
                 exact 
                 render={() => <SetupTournament component={<TournamentRankingsPage />} />}
               />
               <Route 
-                path="/dimensions/:id/tournaments/:tournamentID/user/:userID" 
+                path="/tournaments/:tournamentID/user/:userID" 
                 exact 
                 render={() => <SetupTournament component={<ProfilePage />} />}
               />
               <Route 
-                path="/dimensions/:id/tournaments/:tournamentID/match/:matchID" 
+                path="/tournaments/:tournamentID/match/:matchID" 
                 exact 
                 render={() => <SetupTournament component={<TournamentMatchPage />} />}
               />
-              <Route path="/dimensions/:id/tournaments/:tournamentID/upload" exact 
+              <Route path="/tournaments/:tournamentID/upload" exact 
                 render={() => <SetupTournament component={<UploadBotPage />} />}
               />
             </TournamentProvider>

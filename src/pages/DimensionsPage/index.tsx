@@ -64,8 +64,6 @@ function DimensionsPage() {
   return (
     <DefaultLayout>
       <div className='DimensionPage'>
-        <br />
-        <BackLink to='../../'/>
         {dimension &&
           <div>
             <h2>{dimension.name}</h2>
@@ -80,8 +78,6 @@ function DimensionsPage() {
               columns={tourneyColumns}
               dataSource={tourneyData}
             />
-            <h4>Ongoing Matches</h4>
-            <MatchList className='matchTable' matches={matches}/>
           </div> 
         }
       </div>

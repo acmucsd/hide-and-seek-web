@@ -4,7 +4,7 @@ import { Menu, message } from 'antd';
 import './index.scss';
 import UserContext from '../../UserContext';
 import { logoutUser } from '../../actions/auth';
-import { defaultUser } from '../../configs';
+import { defaultUser, DIMENSION_ID } from '../../configs';
 
 function Header() {
   const { user, setUser } = useContext(UserContext);
@@ -31,7 +31,7 @@ function Header() {
     else {
       setLoginItems(
         <Menu.Item key="login">
-          <Link to={`/dimensions/${DIMENSION_ID}/login`} rel="noopener noreferrer">
+          <Link to={`/login`} rel="noopener noreferrer">
             Login
           </Link>
         </Menu.Item>
@@ -52,12 +52,7 @@ function Header() {
           Home
         </Link>
       </Menu.Item>
-      <Menu.Item key="dimensions">
-        <Link to="/dimensions" rel="noopener noreferrer">
-          Dimensions
-        </Link>
-      </Menu.Item>
-      { DIMENSION_ID &&
+      { 
         loginItems
       }
       <Menu.Item className="empty">
