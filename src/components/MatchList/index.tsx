@@ -3,10 +3,11 @@ import React, { useState, useEffect, useContext } from 'react';
 import './index.scss';
 import { Match, Agent } from 'dimensions-ai';
 import { Link, useParams } from 'react-router-dom';
-import { Table } from 'antd';
+import { Table, Button } from 'antd';
 import MatchActionButton from '../MatchActionButton';
 import UserContext from '../../UserContext';
 import { DIMENSION_ID } from '../../configs';
+import { downloadReplay } from '../../actions/tournament';
 
 const MatchList = (props: 
   {
@@ -59,6 +60,21 @@ const MatchList = (props:
       dataIndex: 'creationdate',
     },
     {
+      title: 'Replay',
+      dataIndex: 'replay',
+      render: (match: Match) => {
+        return (
+          <>
+            {match.id ? <Button onClick={
+              () => {
+                downloadReplay(DIMENSION_ID, params.tournamentID, match.id);
+              }
+            }>Replay</Button> : 'No Replay'}
+          </>
+        )
+      }
+    },
+    {
       title: 'Result',
       dataIndex: 'result',
       render: (match: Match) => {
@@ -94,7 +110,8 @@ const MatchList = (props:
           players: match.agents,
           creationdate: match.creationDate,
           status: match.matchStatus,
-          action: match
+          action: match,
+          replay: match
         }
       });
     }
@@ -112,7 +129,8 @@ const MatchList = (props:
             players: match.agents,
             creationdate: match.creationDate,
             status: match.matchStatus,
-            action: match
+            action: match,
+            replay: match
           });
         }
         
