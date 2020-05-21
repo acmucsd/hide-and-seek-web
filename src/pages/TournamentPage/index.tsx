@@ -14,6 +14,7 @@ import { DIMENSION_ID } from '../../configs';
 
 function TournamentPage() {
   const history = useHistory();
+  const [loading, setLoading] = useState(true);
   const { user } = useContext(UserContext);
   const { tournament } = useContext(TournamentContext);
   const [matches, setMatches] = useState<Array<any>>([]);
@@ -28,7 +29,9 @@ function TournamentPage() {
         return (new Date(a.creationDate)).getTime() - (new Date(b.creationDate).getTime());
       })
       setMatches(sorted);
-    });
+    }).finally(() => {
+      setLoading(false);
+    })
   }
   useEffect(() => {
     update();
@@ -65,6 +68,7 @@ function TournamentPage() {
         {
           <MatchList
             matches={matches}
+            loading={loading}
           />
         }
       </div>

@@ -14,8 +14,9 @@ const MatchList = (props:
     matches: {
       [x in string]: Match
     } | Array<Match>, 
-    className?: string
-  } = {matches: {}, className:""}
+    className?: string,
+    loading?: boolean,
+  } = {matches: {}, className:"", loading: false}
 ) => {
   const params: any = useParams();
   const { user } = useContext(UserContext);
@@ -47,9 +48,9 @@ const MatchList = (props:
         return (
           <div>
             {
-              agents.map((a) => {
+              (agents && agents.length) ? agents.map((a) => {
                 return <Link className='profile-link' target='_blank' rel="noopener noreferrer" to={`/tournaments/${params.tournamentID}/user/${a.tournamentID.id}`}>{a.name}</Link>
-              })
+              }) : <span>loading...</span>
             }
           </div>
         )
@@ -145,12 +146,12 @@ const MatchList = (props:
         <Table className='matchTable'
           columns={adminColumns}
           dataSource={data}
-          loading={data.length === 0}
+          loading={props.loading}
         /> :
         <Table className='matchTable'
           columns={columns}
           dataSource={data}
-          loading={data.length === 0}
+          loading={props.loading}
         />
       }
     </div>
