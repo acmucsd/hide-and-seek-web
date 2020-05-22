@@ -5,9 +5,16 @@ import { nanoid } from 'dimensions-ai';
 import { User } from '../UserContext';
 import { COOKIE_NAME } from '../configs';
 
-export const registerUser = async (dimensionID: nanoid, data: { username: string, password: string}) => {
+export const registerUser = async (dimensionID: nanoid, data: { username: string, password: string, email: string}) => {
+  let body = {
+    username: data.username,
+    password: data.password,
+    userData: {
+      email: data.email
+    }
+  }
   return new Promise((resolve, reject) => {
-    axios.post(process.env.REACT_APP_API + '/api/dimensions/' + dimensionID + '/auth/register', data).then((res: AxiosResponse) => {
+    axios.post(process.env.REACT_APP_API + '/api/dimensions/' + dimensionID + '/auth/register', body).then((res: AxiosResponse) => {
       resolve(res);
     }).catch((error) => {
       message.error(error.response.data.error.message);

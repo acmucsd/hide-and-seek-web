@@ -48,6 +48,24 @@ function RegisterPage() {
                 <Controller 
                   as={
                     <Form.Item>
+                      <Input
+                        type='text'
+                        placeholder='Email'
+                        name='email'
+                      />
+                    </Form.Item>
+                  }
+
+                  name='email'
+                  control={control}
+                  rules={{ required: true , pattern: {
+                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+                    message: "invalid email address"
+                  }}}
+                />
+                <Controller 
+                  as={
+                    <Form.Item>
                       <Input.Password
                         type='password'
                         placeholder='Password'
@@ -76,6 +94,10 @@ function RegisterPage() {
                 />
               
                 {errors.username && <p className='danger'>Missing username</p>}
+                {errors.email && (
+                  (errors.email.type === 'required' && <p className='danger'>Missing email</p>) ||
+                  (errors.email.type === 'pattern' && <p className='danger'>Email is invalid</p>)
+                )}
                 {errors.password && (
                   (errors.password.type === 'minLength' && <p className='danger'>Password is not long enough</p>) ||
                   (errors.password.type === 'required' && <p className='danger'>Password is required</p>)
