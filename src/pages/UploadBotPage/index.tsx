@@ -54,7 +54,7 @@ function UploadBotPage() {
       <div className='UploadBotPage'>
         <Card className='upload-form-card'>
           <h2>Submit Bot</h2>
-          <h4>For Tournament: {tournament.name}</h4>
+          <p>You must submit a zip file that contains all your bot code and the main file in the root folder</p>
           <br />
           <Form>
             <form onSubmit={handleSubmit(onSubmit)}>

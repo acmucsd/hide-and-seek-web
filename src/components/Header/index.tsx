@@ -1,5 +1,5 @@
 import React, {useState, useContext, useEffect} from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useHistory } from 'react-router-dom';
 import { Menu, message } from 'antd';
 import './index.scss';
 import UserContext from '../../UserContext';
@@ -15,7 +15,7 @@ function Header() {
   };
 
   const [loginItems, setLoginItems] = useState<any>();
-
+  const history = useHistory();
   const renderLoginItems = () => {
     if (user.loggedIn) {
       setLoginItems(
@@ -23,6 +23,7 @@ function Header() {
           logoutUser();
           setUser(defaultUser);
           message.success("Logged out");
+          history.push("/");
         }}>
           Logout
         </Menu.Item>

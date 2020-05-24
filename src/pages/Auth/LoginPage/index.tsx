@@ -24,9 +24,7 @@ function LoginPage() {
       history.push('/');
     });
   }
-  useEffect(() => {
-    user.loggedIn && message.info('Already logged in!') && history.push('/');
-  }, []);
+
   return (
     <DefaultLayout>
       <div className='LoginPage'>
