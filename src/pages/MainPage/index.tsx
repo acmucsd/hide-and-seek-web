@@ -21,9 +21,9 @@ function MainPage() {
       <div className='Main'>
         <div className='hero'>
           <h1 id='title'>ACM AI Competition</h1>
-          <p className='subtext'>Full details on the competition will be released on Tuesday 6PM. Feel free to register with your email to get an email once the competition starts!</p>
+          <p className='subtext'>Full details on the competition will be released on Tuesday 6PM!</p>
           <div className='register-wrapper'>
-          <Link to='register'><Button className='registerbtn'>Register</Button></Link>
+          {/* <Link to='register'><Button className='registerbtn'>Register</Button></Link> */}
           </div>
           
         </div>
