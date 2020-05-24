@@ -44,7 +44,7 @@ function Header() {
     }
   }
   useEffect(() => {
-    // renderLoginItems();
+    renderLoginItems();
   }, [user]);
 
   return (
