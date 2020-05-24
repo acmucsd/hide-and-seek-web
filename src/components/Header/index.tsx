@@ -30,11 +30,16 @@ function Header() {
     }
     else {
       setLoginItems(
-        <Menu.Item key="login">
+        [<Menu.Item key="login">
           <Link to={`/login`} rel="noopener noreferrer">
             Login
           </Link>
-        </Menu.Item>
+        </Menu.Item>,
+        <Menu.Item key="register">
+          <Link to={`/register`} rel="noopener noreferrer">
+            Register
+          </Link>
+        </Menu.Item>]
       );
     }
   }

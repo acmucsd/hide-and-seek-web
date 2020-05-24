@@ -44,7 +44,7 @@ function App() {
       <div>
         <Switch>
           <UserProvider value={{user: user, setUser: setUser}}>
-            <Route path="/" exact component={DimensionPage} />
+            <Route path="/" exact component={MainPage} />
             <Route path="/register" exact component={RegisterPage} />
             <Route path="/login" exact component={LoginPage} />
             <Route path="/dimensions/:id/matches/:matchID" exact component={MatchPage} />

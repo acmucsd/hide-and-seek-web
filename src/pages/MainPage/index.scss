@@ -10,11 +10,19 @@
     //background: linear-gradient(-25deg, #479aee, #003cdb); cool
     background: $b1;
     padding-top: 60px;
-    min-height: calc(100vh - 120px);
     .subtext {
       @include leftPaddedText;
       font-size: $font4;
       color: $white;
+    }
+    padding-bottom: 90px;
+    line-height: 2;
+    .register-wrapper {
+      @include leftPaddedText;
+    }
+    .registerbtn {
+      font-size: $font4;
+      height: $font4 * 2;
     }
   }
   .dimensions-list {

@@ -3,7 +3,9 @@ import './index.scss';
 import DefaultLayout from "../../components/layouts/default";
 import { getDimension } from '../../actions/dimensions';
 import DimensionCard from '../../components/DimensionCard';
+import { Button } from "antd";
 import { DimensionType } from 'dimensions-ai';
+import { Link } from 'react-router-dom';
 function MainPage() {
   const [dimensions, setDimensions] = useState<{[x in string]: DimensionType}>({});
   useEffect(() => {
@@ -18,19 +20,12 @@ function MainPage() {
     <DefaultLayout>
       <div className='Main'>
         <div className='hero'>
-          <h1 id='title'>Dimensions Station</h1>
-          <p className='subtext'>Observe your Dimensions, Matches, and Tournaments, and basically everything</p>
-          <div className='dimensions-list'>
-            {
-              dimensions &&
-              Object.values(dimensions).map((key, ind) => {
-                let dim = key;
-                return (
-                  <DimensionCard dimension={dim}/>
-                )
-              })
-            }
+          <h1 id='title'>ACM AI Competition</h1>
+          <p className='subtext'>Full details on the competition will be released on Tuesday 6PM. Feel free to register with your email to get an email once the competition starts!</p>
+          <div className='register-wrapper'>
+          <Link to='register'><Button className='registerbtn'>Register</Button></Link>
           </div>
+          
         </div>
       </div>
     </DefaultLayout>
