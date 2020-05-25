@@ -4,13 +4,13 @@ import DefaultLayout from "../../components/layouts/default";
 import { Form, Input, Button, Upload, message } from 'antd';
 import { useForm, Controller } from 'react-hook-form';
 import Card from '../../components/Card';
-import { useParams, useHistory } from 'react-router-dom';
+import { useParams, useHistory, Redirect } from 'react-router-dom';
 import { UploadOutlined } from '@ant-design/icons';
 import TournamentContext from '../../contexts/tournament';
 import { uploadBot } from '../../actions/tournament';
 import UserContext from '../../UserContext';
 import path from 'path';
-import { DIMENSION_ID } from '../../configs';
+import { DIMENSION_ID, UPLOAD_DISABLED } from '../../configs';
 
 
 function UploadBotPage() {
@@ -48,9 +48,13 @@ function UploadBotPage() {
       setFile(file.originFileObj);
     }
   }
+  if (UPLOAD_DISABLED) {
+
+  }
   
   return (
     <DefaultLayout>
+      {UPLOAD_DISABLED && <Redirect to='/'/>}
       <div className='UploadBotPage'>
         <Card className='upload-form-card'>
           <h2>Submit Bot</h2>

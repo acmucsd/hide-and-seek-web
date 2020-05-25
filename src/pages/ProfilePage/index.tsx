@@ -10,7 +10,7 @@ import TournamentContext from '../../contexts/tournament';
 import { Skeleton, Divider, Button, message } from 'antd';
 import UserContext from '../../UserContext';
 import MatchList from '../../components/MatchList';
-import { DIMENSION_ID } from '../../configs';
+import { DIMENSION_ID, UPLOAD_DISABLED } from '../../configs';
 
 function ProfilePage() {
   const params: any = useParams();
@@ -29,7 +29,9 @@ function ProfilePage() {
         setUser(res);
         if (res.statistics) {
           let s = res.statistics![tourneyKey];
-          setStats(s);
+          if (s) {
+            setStats(s);
+          }
           // setPlayer(s.player);
         }
       }).catch((err) => {
@@ -54,7 +56,7 @@ function ProfilePage() {
         <Divider></Divider>
         <div className="statistics">
           <h3>Statistics for Tournament: {tournament.name}</h3>
-          <Skeleton loading={!stats.player}>
+          <Skeleton loading={!stats && !stats.player}>
             <p>Matches Played with Current Bot: {stats.matchesPlayed}</p>
             { ranksystem === 'trueskill' && 
               <div>
@@ -88,13 +90,14 @@ function ProfilePage() {
             <h4>Upload Bot</h4>
             <Button onClick={() => {
               history.push("../upload");
-            }}>Upload</Button>
+            }} disabled={UPLOAD_DISABLED}>Upload</Button>
             <h4>Download Bot</h4>
             <Button onClick={() => {
               downloadBot(DIMENSION_ID, tournament.id, params.userID).then((url) => {
                 window.open(url);
               }).catch((err) => {
-                message.error(err.message);
+                console.error(err.message);
+                message.warn("couldn't download your bot, you might no have one uploaded yet");
               })
             }}>Download</Button>
           </div>

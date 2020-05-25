@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { UserProvider } from './UserContext'
 import { TournamentProvider } from './contexts/tournament';
-
+import { Spin } from 'antd';
+import { LoadingOutlined } from '@ant-design/icons';
 import SetupTournament from './containers/tournament';
 
 import './styles/index.scss';
@@ -27,6 +28,8 @@ let cookie = getCookie(COOKIE_NAME);
 function App() {
   const [user, setUser] = useState(defaultUser);
   const [tournament, setTournament] = useState(defaultTournament);
+  const [verifying, setVerifying] =  useState(true);
+  const antIcon = <LoadingOutlined style={{ fontSize: '2rem' }} spin />;
   useEffect(() => {
     if (cookie) {
       // verify cookie
@@ -35,15 +38,22 @@ function App() {
         setUser(u);
         message.success("Welcome back " + u.username);
       }).catch(() => {
+        
       }).finally(() => {
+        setVerifying(false);
       })
+    }
+    else {
+      setVerifying(false);
     }
   }, []);
   return (
     <Router>
       <div>
         <Switch>
+        {!verifying ?
           <UserProvider value={{user: user, setUser: setUser}}>
+            
             <Route path="/" exact component={MainPage} />
             <Route path="/register" exact component={RegisterPage} />
             <Route path="/login" exact component={LoginPage} />
@@ -74,7 +84,14 @@ function App() {
                 render={() => <SetupTournament component={<UploadBotPage />} />}
               />
             </TournamentProvider>
-          </UserProvider>
+          </UserProvider> :
+          <div className='Loading' style={{
+            textAlign: 'center',
+            fontSize: '2rem',
+            height: '100vh',
+            lineHeight: '100vh'
+          }}>Loading <Spin indicator={antIcon} /></div>
+        }
         </Switch>
       </div>
     </Router>

@@ -59,6 +59,9 @@ const MatchList = (props:
     {
       title: 'Creation Date',
       dataIndex: 'creationdate',
+      render: (date: string) => {
+        return (new Date(date)).toLocaleString()
+      }
     },
     {
       title: 'Replay',
@@ -81,7 +84,7 @@ const MatchList = (props:
       render: (match: Match) => {
         return (
           <>
-           {match.results ? <a target='_blank' rel="noopener noreferrer" href={process.env.REACT_APP_API + `/api/dimensions/${DIMENSION_ID}/match/${match.id}/results`}>Results</a> : 'No results yet'}
+           {match.results ? <a target='_blank' rel="noopener noreferrer" href={process.env.REACT_APP_API + `/api/dimensions/${DIMENSION_ID}/match/${match.id}/results`}><div>Winner: {match.results.winner}, Loser: {match.results.loser}</div><div>Seeker: {match.results.hider}, Hider: {match.results.hider}</div></a> : 'No results yet'}
           </>
         )
       }

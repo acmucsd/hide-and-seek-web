@@ -10,7 +10,7 @@ import TournamentContext from '../../contexts/tournament';
 import BackLink from '../../components/BackLink';
 import path from 'path';
 import MatchList from '../../components/MatchList';
-import { DIMENSION_ID } from '../../configs';
+import { DIMENSION_ID, UPLOAD_DISABLED } from '../../configs';
 
 function TournamentPage() {
   const history = useHistory();
@@ -47,30 +47,18 @@ function TournamentPage() {
         }>Current Ranks</Link>
         <Button onClick={() => {
           history.push(path.join(history.location.pathname, 'upload'));
-        }}>Upload Bot</Button>
-        <h4 className='meta-data-title'>Tournament Metadata</h4>
-        {tournament && 
-          <p className='meta-data'>
-            id: {tournament.id} <br />
-            Status: {tournament.status}
-            <br />
-            Logging Level: {
-              //@ts-ignore
-              tournament.configs.loggingLevel
-            } 
-          </p>
-        }
+        }} disabled={UPLOAD_DISABLED}>Upload Bot</Button>
         {
-          tournament && user.admin && 
+          tournament.id && user.admin &&
           <TournamentActionButton dimensionID={DIMENSION_ID} tournament={tournament} update={update}/>
         }
-        <h3>Ongoing Matches in Tournament</h3>
+        {/* <h3>Ongoing Matches in Tournament</h3>
         {
           <MatchList
             matches={matches}
             loading={loading}
           />
-        }
+        } */}
       </div>
     </DefaultLayout>
   );

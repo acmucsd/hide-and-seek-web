@@ -10,7 +10,7 @@ import UserContext from '../../UserContext';
 import TournamentContext from '../../contexts/tournament';
 import BackLink from '../../components/BackLink';
 import path from 'path';
-import { DIMENSION_ID } from '../../configs';
+import { DIMENSION_ID, UPLOAD_DISABLED } from '../../configs';
 
 const trueskillCols = [
   {
@@ -139,7 +139,7 @@ function TournamentPage() {
         <h2>{tournament.name}</h2>
         <Button onClick={() => {
           history.push(path.join(history.location.pathname, '../upload'));
-        }}>Upload Bot</Button>
+        }} disabled={UPLOAD_DISABLED} >Upload Bot</Button>
         <Button className='refresh-btn' onClick={() => {
           update();
         }}>Refresh Leaderboard</Button>

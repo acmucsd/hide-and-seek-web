@@ -21,11 +21,15 @@ function MainPage() {
       <div className='Main'>
         <div className='hero'>
           <h1 id='title'>ACM AI Competition</h1>
-          <p className='subtext'>Full details on the competition will be released on Tuesday 6PM!</p>
+          <p className='subtext'>Full details on the competition will be released on Tuesday 6PM Pacific Time!</p>
           <div className='register-wrapper'>
           <Link to='register'><Button className='registerbtn'>Register</Button></Link>
           </div>
           
+        </div>
+        <div className='main-section'>
+          <h1 className='statement'>Welcome to Hide and Seek 🙈🏃</h1>
+          <p></p>
         </div>
       </div>
     </DefaultLayout>
