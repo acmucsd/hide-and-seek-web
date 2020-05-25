@@ -25,7 +25,7 @@ const trueskillCols = [
     title: 'Score = µ - 3 * σ',
     dataIndex: 'score',
     render: (info: any) => {
-      let score = (info.rankState.rating.mu - info.rankState.rating.sigma * 3).toFixed(2)
+      let score = (info.rankState.rating.mu - info.rankState.rating.sigma * 3).toFixed(3)
       return (
         <span>{score}</span>
       )
@@ -34,12 +34,12 @@ const trueskillCols = [
   {
     title: 'Mu: µ',
     dataIndex: 'score',
-    render: (info: any) => info.rankState.rating.mu.toFixed(2)
+    render: (info: any) => info.rankState.rating.mu.toFixed(3)
   },
   {
     title: 'Sigma: σ',
     dataIndex: 'score',
-    render: (info: any) => info.rankState.rating.sigma.toFixed(2)
+    render: (info: any) => info.rankState.rating.sigma.toFixed(3)
   },
   {
     title: 'Matches Played',
@@ -117,7 +117,7 @@ function TournamentPage() {
       newData = res.map((info: any, ind: number) => {
         return {
           key: `${ind}`,
-          username: <Link to={`${path.join(window.location.pathname, `../user/${info.id}`)}`}>{info.player.username}</Link>,
+          username: <Link to={`${path.join(window.location.pathname, `../user/${info.player.tournamentID.id}`)}`}>{info.player.username}</Link>,
           pname: info.name,
           score: info,
           matchesPlayed: info.matchesPlayed
