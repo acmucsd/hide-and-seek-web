@@ -118,7 +118,7 @@ function TournamentPage() {
         return {
           key: `${ind}`,
           username: <Link to={`${path.join(window.location.pathname, `../user/${info.player.tournamentID.id}`)}`}>{info.player.username}</Link>,
-          pname: info.name,
+          pname: info.player.tournamentID.name,
           score: info,
           matchesPlayed: info.matchesPlayed
         }
