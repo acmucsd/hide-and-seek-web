@@ -37,7 +37,7 @@ function MainPage() {
           <div className='gif-div'>
             <img src="/hideandseek.gif">
             </img>
-            <caption>A game of Hide and Seek where the blue Seekers swiftly find the hiders and corner them</caption>
+            <div className='caption'>A game of Hide and Seek where the blue Seekers swiftly find the hiders and corner them</div>
           </div>
           <p>Find out how to get started on Tuesday 6PM Pacific Time. We will open source the github repository with all the details then.</p>
           
