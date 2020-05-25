@@ -10,7 +10,7 @@ import TournamentContext from '../../contexts/tournament';
 import { uploadBot } from '../../actions/tournament';
 import UserContext from '../../UserContext';
 import path from 'path';
-import { DIMENSION_ID, UPLOAD_DISABLED } from '../../configs';
+import { DIMENSION_ID, OPEN_TO_PUBLIC } from '../../configs';
 
 
 function UploadBotPage() {
@@ -48,13 +48,9 @@ function UploadBotPage() {
       setFile(file.originFileObj);
     }
   }
-  if (UPLOAD_DISABLED) {
-
-  }
-  
   return (
     <DefaultLayout>
-      {UPLOAD_DISABLED && <Redirect to='/'/>}
+      {!OPEN_TO_PUBLIC && <Redirect to='/'/>}
       <div className='UploadBotPage'>
         <Card className='upload-form-card'>
           <h2>Submit Bot</h2>

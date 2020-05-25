@@ -4,7 +4,7 @@ import { TournamentMeta } from "../contexts/tournament";
 export const DIMENSION_ID = 'oLBptg';
 export const TOURNAMENT_ID = 'a0Zlpa';
 export const COOKIE_NAME = 'dimension_user_c';
-export const UPLOAD_DISABLED = true;
+export const OPEN_TO_PUBLIC = false;
 export const defaultUser: User = {
   loggedIn: false,
   admin: false,

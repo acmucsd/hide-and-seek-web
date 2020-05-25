@@ -10,7 +10,7 @@ import TournamentContext from '../../contexts/tournament';
 import { Skeleton, Divider, Button, message } from 'antd';
 import UserContext from '../../UserContext';
 import MatchList from '../../components/MatchList';
-import { DIMENSION_ID, UPLOAD_DISABLED } from '../../configs';
+import { DIMENSION_ID, OPEN_TO_PUBLIC } from '../../configs';
 
 function ProfilePage() {
   const params: any = useParams();
@@ -90,7 +90,7 @@ function ProfilePage() {
             <h4>Upload Bot</h4>
             <Button onClick={() => {
               history.push("../upload");
-            }} disabled={UPLOAD_DISABLED}>Upload</Button>
+            }} disabled={!OPEN_TO_PUBLIC}>Upload</Button>
             <h4>Download Bot</h4>
             <Button onClick={() => {
               downloadBot(DIMENSION_ID, tournament.id, params.userID).then((url) => {

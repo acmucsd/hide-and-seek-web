@@ -10,7 +10,7 @@ import TournamentContext from '../../contexts/tournament';
 import BackLink from '../../components/BackLink';
 import path from 'path';
 import MatchList from '../../components/MatchList';
-import { DIMENSION_ID, UPLOAD_DISABLED } from '../../configs';
+import { DIMENSION_ID, OPEN_TO_PUBLIC } from '../../configs';
 
 function TournamentPage() {
   const history = useHistory();
@@ -47,7 +47,7 @@ function TournamentPage() {
         }>Current Ranks</Link>
         <Button onClick={() => {
           history.push(path.join(history.location.pathname, 'upload'));
-        }} disabled={UPLOAD_DISABLED}>Upload Bot</Button>
+        }} disabled={!OPEN_TO_PUBLIC}>Upload Bot</Button>
         {
           tournament.id && user.admin &&
           <TournamentActionButton dimensionID={DIMENSION_ID} tournament={tournament} update={update}/>

@@ -23,6 +23,13 @@
     .registerbtn {
       font-size: $font4;
       height: $font4 * 2;
+      border-radius: 0.5rem;
+    }
+    .getstartedbtn {
+      font-size: $font4;
+      height: $font4 * 2;
+      border-radius: 0.5rem;
+      margin-left: 2rem;
     }
   }
   .dimensions-list {
@@ -37,9 +44,11 @@
   .main-section {
     color: $white;
     background: $b1;
-    height:500px;
     position: relative;
     padding:50px;
+    p {
+      font-size: $font2;
+    }
   }
   .main-section:nth-child(even) {
     background: $white;
@@ -48,7 +57,24 @@
     z-index:10;
   }
   .main-section .statement {
-    font-size: $font4;
+    font-size: $font5;
     font-weight:300;
+  }
+  .gif-div {
+    
+    margin: auto;
+    width: 100%;
+    text-align: center;
+    display: inline-block;
+    img {
+      width: 420px;
+      max-width: calc(100% - 2rem);
+    }
+    caption {
+      width: 100%;
+      text-align: center;
+    }
+    margin-top: 2rem;
+    margin-bottom: 2rem;
   }
 }
