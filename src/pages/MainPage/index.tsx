@@ -54,9 +54,9 @@ function MainPage() {
           <p>$30 Amazon Gift card given to the highest ranking player. An email with the code will be sent to the player and will be recorded in ACM AI's history books!</p>
           <h3 className='prize-title'>Best hacker</h3>
           <p>$30 Amazon Gift card given to competitor who demonstrates (without actually doing anything malicious) the best reproducible hack into our competition systems. An email with the code will be sent to the player and will be recorded in ACM AI's history books!</p>
-          <h1 className='statement'>Rules / Code of Conduct</h1>  
-
-
+          <br />
+          <br />
+          <h1 className='statement'>Rules / Code of Conduct</h1>
           <ol>
             <li>We Treat each other with respect. ACM is an all inclusive community. We accept and welcome people of all backgrounds and skill levels. Harassment, hate speech, and verbal abuse are STRICTLY prohibited and will result in an immediate ban from the competition.</li>
             <li>
