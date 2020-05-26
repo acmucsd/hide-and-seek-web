@@ -23,8 +23,9 @@ function MainPage() {
         <div className='hero'>
           <h1 id='title'>ACM AI Competition</h1>
           <p className='subtext'>Full details on the competition will be released on Tuesday 6PM Pacific Time!</p>
-          <div className='register-wrapper'>
+          <div className='button-wrapper'>
           <Link to='register'><Button className='registerbtn'>Register</Button></Link>
+          <br />
           {
             OPEN_TO_PUBLIC && <a href='https://github.com/acmucsd/hide-and-seek-ai' target='_blank' rel="noopener noreferrer"><Button className='getstartedbtn'>Get Started</Button></a>
           }
