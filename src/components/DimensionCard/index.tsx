@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './index.scss';
+import './index.less';
 import { DimensionType } from 'dimensions-ai';
 import { Link } from 'react-router-dom';
 

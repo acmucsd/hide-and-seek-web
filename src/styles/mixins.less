@@ -1,5 +1,5 @@
-@import './vars.scss';
-@mixin smack-center {
+@import './vars.less';
+.smack-center {
   margin: auto;
   position: absolute;
   top:50%;
@@ -7,18 +7,18 @@
   left:50%;
 }
 
-@mixin noContainer {
-  margin-left: -$container-left-margin;
-  margin-right: -$container-right-margin;
+.noContainer {
+  margin-left: -@container-left-margin;
+  margin-right: -@container-right-margin;
 }
 
 /*
 Keeps text left padded by 10%, and then by 24px on small screens
 */
-@mixin leftPaddedText {
+.leftPaddedText {
   margin-left: 10%;
   margin-right: 10%;
-  @media screen and (max-width: $xs){
+  @media screen and (max-width: @xs){
     margin-left: 24px;
     margin-right: 24px;
   }

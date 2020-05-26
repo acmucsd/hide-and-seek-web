@@ -2,7 +2,7 @@ import React from 'react';
 import { runMatch, stopMatch, removeMatch, resumeMatch } from '../../actions/match';
 import { Button } from 'antd';
 import { Match, nanoid } from 'dimensions-ai';
-import './index.scss';
+import './index.less';
 const MatchActionButton = (props:{match: Match, dimensionID: nanoid, update?: Function}) => {
 
   let btns;

@@ -2,7 +2,7 @@ import React from 'react';
 import { Button } from 'antd';
 import { stopTournament, runTournament } from '../../actions/tournament';
 import { nanoid, Tournament } from 'dimensions-ai';
-import './index.scss';
+import './index.less';
 import { TournamentMeta } from '../../contexts/tournament';
 const TournamentActionButton = (props: {tournament: TournamentMeta, dimensionID: nanoid, update?: Function}) => {
 

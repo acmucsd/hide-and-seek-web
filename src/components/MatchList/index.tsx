@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 
-import './index.scss';
+import './index.less';
 import { Match, Agent } from 'dimensions-ai';
 import { Link, useParams } from 'react-router-dom';
 import { Table, Button } from 'antd';

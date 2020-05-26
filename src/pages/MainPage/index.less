@@ -1,0 +1,108 @@
+@import '../../styles/base.less';
+.Main {
+  .seeker {
+    color: @blue
+  }
+  .hider {
+    color: @p1 !important;
+  }
+  #title {
+    color: @white;
+    display: inline-block;
+    .leftPaddedText();
+  }
+  .noContainer();
+  .hero {
+    background: linear-gradient(135deg, #D64550, #EB8B90);
+    // background: @b2;
+    padding-top: 60px;
+    .subtext {
+      .leftPaddedText();
+      font-size: @font4;
+      color: @white;
+    }
+    padding-bottom: 90px;
+    line-height: 2;
+    .register-wrapper {
+      .leftPaddedText();
+    }
+    
+    .registerbtn {
+      font-size: @font4;
+      height: @font4 * 2;
+      border-radius: 0.5rem;
+    }
+    .getstartedbtn {
+      font-size: @font4;
+      height: @font4 * 2;
+      border-radius: 0.5rem;
+      margin-left: 2rem;
+    }
+  }
+  .dimensions-list {
+    margin-top: 24px;
+    display: flex;
+    margin-left: calc(10% - 24px);
+  }
+  .content {
+    width:100%;
+    margin: 0;
+  }
+  .main-section {
+    color: @white;
+    background: @b2;
+    position: relative;
+    padding-left: 6rem;
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+    padding-right: 6rem;
+    p {
+      font-size: @font2;
+    }
+    .prize-title {
+      color: @white;
+      font-weight: 400;
+    }
+    .statement {
+      color: @white;
+      border-left: 4px solid @white;
+      padding-left: 1rem;
+    }
+  }
+  .main-section:last-child {
+    padding-bottom: 12rem;
+  }
+  .main-section:nth-child(even) {
+    background: @white;
+    color: @b2;
+    box-shadow:0px 0px 40px rgba(30, 55, 77, 0.52);
+    z-index:10;
+    .statement {
+      color: @b1;
+      border-left: 4px solid @b2;
+    }
+    
+  }
+  .main-section .statement {
+    font-size: @font5;
+    font-weight:300;
+  }
+  .gif-div {
+    
+    margin: auto;
+    width: 100%;
+    text-align: center;
+    display: inline-block;
+    img {
+      width: 420px;
+      max-width: calc(100% - 2rem);
+    }
+    .caption {
+      width: 100%;
+      margin-top: 1rem;
+      text-align: center;
+    }
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+  }
+}

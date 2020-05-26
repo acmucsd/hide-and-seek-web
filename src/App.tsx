@@ -6,7 +6,7 @@ import { Spin } from 'antd';
 import { LoadingOutlined } from '@ant-design/icons';
 import SetupTournament from './containers/tournament';
 
-import './styles/index.scss';
+import './styles/index.less';
 import ReactGA from 'react-ga';
 import MainPage from './pages/MainPage';
 

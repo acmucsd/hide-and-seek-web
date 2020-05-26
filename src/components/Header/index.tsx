@@ -1,7 +1,7 @@
 import React, {useState, useContext, useEffect} from 'react';
 import { Link, useParams, useHistory } from 'react-router-dom';
 import { Menu, message } from 'antd';
-import './index.scss';
+import './index.less';
 import UserContext from '../../UserContext';
 import { logoutUser } from '../../actions/auth';
 import { defaultUser, DIMENSION_ID, TOURNAMENT_ID } from '../../configs';

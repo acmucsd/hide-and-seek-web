@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './index.scss';
+import './index.less';
 import { Table} from 'antd';
 
 import DefaultLayout from '../../components/layouts/default';

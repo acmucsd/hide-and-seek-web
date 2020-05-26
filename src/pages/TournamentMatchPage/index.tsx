@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react';
-import './index.scss';
+import './index.less';
 import DefaultLayout from "../../components/layouts/default";
 import Match from "../../components/Match";
 import { getMatch } from '../../actions/tournament';

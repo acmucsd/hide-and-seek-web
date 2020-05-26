@@ -1,6 +1,6 @@
-@import '~antd/dist/antd.css';
-@import '~./reset.scss';
-@import './vars.scss';
+@import '~antd/dist/antd.less';
+@import '~./reset.less';
+@import './vars.less';
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -22,11 +22,11 @@ html {
 }
 body {
   font-family: 'Open Sans', Arial, sans-serif;
-  font-size: $font1;
+  font-size: @font1;
   font-weight:400;
   line-height: 1.6;
   margin:0px;
-  color:$b2;
+  color:@b2;
   box-sizing: border-box;
   scroll-behavior: smooth;
   background-color:#FEFEFE;
@@ -34,39 +34,39 @@ body {
 }
 h1 {
   font-family:'TexGyre', 'Open Sans', Arial, sans-serif;
-  font-size: $font6;
+  font-size: @font6;
   font-weight:600;
-  margin-top: $margin-base * 2;
-  margin-bottom: $margin-base * 2;
-  color:$b2;
+  margin-top: @margin-base * 2;
+  margin-bottom: @margin-base * 2;
+  color:@b2;
 }
 h2 {
   font-family:'TexGyre', 'Open Sans', Arial, sans-serif;
-  font-size: $font5;
+  font-size: @font5;
   font-weight:600;
-  margin-top: $margin-base * 2;
-  color:$b2;
+  margin-top: @margin-base * 2;
+  color:@b2;
 }
 h3 {
   font-family:'TexGyre', 'Open Sans', Arial, sans-serif;
-  font-size:$font4;
+  font-size:@font4;
   font-weight:600;
-  margin-top: $margin-base * 2;
-  color:$b2;
+  margin-top: @margin-base * 2;
+  color:@b2;
 }
 h4 {
   font-family:'TexGyre', 'Open Sans', Arial, sans-serif;
-  font-size:$font3;
+  font-size:@font3;
   font-weight:600;
-  margin-top: $margin-base * 2;
-  color:$b2;
+  margin-top: @margin-base * 2;
+  color:@b2;
 }
 h5 {
-  font-size: $font2;
+  font-size: @font2;
   font-weight: 400;
-  color:$b2;
-  margin-top: $margin-base;
-  margin-bottom: $margin-base;
+  color:@b2;
+  margin-top: @margin-base;
+  margin-bottom: @margin-base;
 }
 p {
   font-weight: 400;
@@ -128,18 +128,18 @@ a[l]:hover::before, a[l]:focus::before {
 //     text-rendering: optimizeLegibility;
 // }
 
-@media only screen and (max-width: $md) {
+@media only screen and (max-width: @md) {
   html {
     font-size: 14px;
   }
 }
-@media only screen and (max-width: $sm) {
+@media only screen and (max-width: @sm) {
   html {
     font-size: 12px;
   }
 }
 
-@media only screen and (max-width: $xs) {
+@media only screen and (max-width: @xs) {
   html {
     font-size: 11px;
   }

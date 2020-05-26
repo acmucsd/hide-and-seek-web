@@ -1,5 +1,5 @@
 import React from 'react';
-import './container.scss';
+import './container.less';
 function Container(props:any) {
   return(
     <div className='container'>

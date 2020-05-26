@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react';
-import './index.scss';
+import './index.less';
 import { Tournament } from 'dimensions-ai';
 import { useParams, Link, useHistory } from 'react-router-dom';
 import DefaultLayout from "../../components/layouts/default";

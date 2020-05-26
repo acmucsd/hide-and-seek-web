@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import './index.scss';
+import './index.less';
 
 const UploadBot = () => {
 

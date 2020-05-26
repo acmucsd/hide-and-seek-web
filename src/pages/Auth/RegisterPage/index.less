@@ -1,15 +1,15 @@
-@import '../../../styles/base.scss';
+@import '../../../styles/base.less';
 .RegisterPage {
 
   .danger {
-    color: $danger;
+    color: @danger;
   }
   .registerButton {
-    margin-top: $margin-base;
+    margin-top: @margin-base;
   }
   .registerCard {
     margin: auto;
-    @include smack-center;
+    .smack-center();
     max-width: 90%;
   }
   .login-info {

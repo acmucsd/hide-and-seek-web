@@ -1,5 +1,5 @@
 import * as React from 'react';
-import './index.scss';
+import './index.less';
 import {Card as AntdCard} from 'antd';
 
 export function Card(props: any) {

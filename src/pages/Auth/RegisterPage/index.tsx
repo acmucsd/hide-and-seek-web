@@ -1,5 +1,5 @@
 import React from 'react';
-import './index.scss';
+import './index.less';
 import DefaultLayout from "../../../components/layouts/default";
 import Card from '../../../components/Card';
 import { Form, Input, message, Button } from 'antd';

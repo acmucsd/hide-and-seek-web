@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from 'antd';
-import './index.scss';
+import './index.less';
 import { Link } from 'react-router-dom';
 import path from 'path';
 const BackLink = (props: { to?: string }) => {

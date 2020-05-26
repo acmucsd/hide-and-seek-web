@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import MatchActionButton from '../MatchActionButton';
-import './index.scss';
+import './index.less';
 import { Table } from 'antd';
 import { Agent, Match as DMatch, nanoid } from 'dimensions-ai';
 import { Link } from 'react-router-dom';
