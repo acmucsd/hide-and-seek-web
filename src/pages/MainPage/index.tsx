@@ -22,7 +22,7 @@ function MainPage() {
       <div className='Main'>
         <div className='hero'>
           <h1 id='title'>ACM AI Competition</h1>
-          <p className='subtext'>Full details on the competition will be released on Tuesday 6PM Pacific Time!</p>
+          <p className='subtext'></p>
           <div className='button-wrapper'>
           <Link to='register'><Button className='registerbtn'>Register</Button></Link>
           <br />
@@ -40,13 +40,13 @@ function MainPage() {
             </img>
             <div className='caption'>A game of Hide and Seek where the blue <span className='seeker'>Seekers</span> swiftly find the <span className='hider'>Hiders</span> and corner them</div>
           </div>
-          <p>We will open source the github repository with all the details at 6PM Tuesday, Pacific Time. Keep reading for more details regarding how this competition will work and how we will give out prizes</p>
+          <p>For details on specs, code, and how the game works, check out the <a href='https://github.com/acmucsd/hide-and-seek-ai' target='_blank' rel="noopener noreferrer">github!</a>. We also love open source, feel free to contribute anything!</p>
         </div>
         <div className='main-section'>
           <h1 className='statement'>Ranking 📈</h1>
           <p>So you submitted your bot. What now? Check out <Link to={`/tournaments/${TOURNAMENT_ID}/ranks`}>the leaderboard</Link> to see how well your bot is doing! After submitting, you will need to give our servers some time to get around to scheduling matches for your bot.</p>
           <p>The way we rank players is through the Trueskill ranking system developed by Microsoft. You have 3 values associated with your ranking, a score, a mu (µ), and a sigma (σ)</p>
-          <p>Mu represents our absolute measure of your player's skill. Sigma represents our confidence in that measure, with lower meaning higher confidence. Your score is then calculated as µ - 3 * σ and all players are ranked according to that</p>
+          <p>Mu represents our absolute measure of your bot's skill. Sigma represents our confidence in that measure, with lower meaning higher confidence. Your score is then calculated as µ - 3 * σ and all players are ranked according to that</p>
           <br />
           <br />
           <h1 className='statement'>Prizes 🏆</h1>
