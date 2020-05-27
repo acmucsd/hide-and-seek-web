@@ -35,7 +35,12 @@ function ProfilePage() {
           // setPlayer(s.player);
         }
       }).catch((err) => {
-        message.error('No permissions');
+        if (!user.loggedIn) {
+          message.error('You need to login first!');
+        }
+        else {
+          message.error(err.message);
+        }
         history.push('../');
       });
       getPlayerMatches(DIMENSION_ID, tournament.id, params.userID, 0, 20).then((matches) => {
@@ -54,6 +59,12 @@ function ProfilePage() {
         <h1>Profile page</h1>
         <h2>{dbuser?.username}</h2>
         <Divider></Divider>
+        <div>
+          <h3>Bot Status</h3>
+          {
+            stats && stats.player && (stats.player.disabled ? <p className='danger'>Disabled due to compile error, please reupload your bot after it compiles locally</p> : <p>Running</p>)
+          }
+        </div>
         <div className="statistics">
           <h3>Statistics for Tournament: {tournament.name}</h3>
           <Skeleton loading={!stats && !stats.player}>
