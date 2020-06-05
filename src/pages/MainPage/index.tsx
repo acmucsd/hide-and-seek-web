@@ -22,7 +22,7 @@ function MainPage() {
       <div className='Main'>
         <div className='hero'>
           <h1 id='title'>ACM AI Competition</h1>
-          <p className='subtext'></p>
+          <p className='subtext'>Closes on July 6th 11:59 PM PST</p>
           <div className='button-wrapper'>
           <Link to='register'><Button className='registerbtn'>Register</Button></Link>
           <br />
@@ -47,12 +47,15 @@ function MainPage() {
           <p>So you submitted your bot. What now? Check out <Link to={`/tournaments/${TOURNAMENT_ID}/ranks`}>the leaderboard</Link> to see how well your bot is doing! After submitting, you will need to give our servers some time to get around to scheduling matches for your bot.</p>
           <p>The way we rank players is through the Trueskill ranking system developed by Microsoft. You have 3 values associated with your ranking, a score, a mu (µ), and a sigma (σ)</p>
           <p>Mu represents our absolute measure of your bot's skill. Sigma represents our confidence in that measure, with lower meaning higher confidence. Your score is then calculated as µ - 3 * σ and all players are ranked according to that</p>
+          <p>
+            To calculate final rankings for prizes, we close the submissions after the deadline and will use the latest bot you submitted. We reset all rankings and run the whole tournament for 3 days to get a more accurate depiction of the true skill levels of each bot through many many matches.
+          </p>
           <br />
           <br />
           <h1 className='statement'>Prizes 🏆</h1>
           <p>At the moment, we have two prizes of $30 Amazon Gift cards for two categories</p>
           <h3 className='prize-title'>Overall Winner</h3>
-          <p>$30 Amazon Gift card given to the highest ranking player. An email with the code will be sent to the player and will be recorded in ACM AI's history books!</p>
+          <p>$30 Amazon Gift card given to the highest ranking player. An email with the code will be sent to the player and will be recorded in ACM AI's history books! The highest ranking is explained above in the ranking section</p>
           <h3 className='prize-title'>Best hacker</h3>
           <p>$30 Amazon Gift card given to competitor who demonstrates (without actually doing anything malicious) the best reproducible hack into our competition systems. An email with the code will be sent to the player and will be recorded in ACM AI's history books!</p>
           <br />
