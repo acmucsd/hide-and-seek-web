@@ -34,13 +34,13 @@ function MainPage() {
         </div>
         <div className='main-section'>
           <h1 className='statement'>Welcome to Hide and Seek 🙈🏃</h1>
-          <p>You must use your wits and strategies, along with knowledge of programming, to effectively hide and see. Your AI must be able to play the <span className='seeker'>Seeker</span> and the <span className='hider'>Hider</span>, and must either find and tag all <span className='hider'>hiders</span> or hide from all <span className='seeker'>seekers</span>. Are you up for the challenge?</p>
+          <p>You must use your wits and strategies, along with knowledge of programming, to effectively hide and see. Your AI must be able to play the <span className='seeker'>Seeker</span> and the <span className='hider'>Hider</span>, and must either find and tag all <span className='hider'>hiders</span> or hide from all <span className='seeker'>seekers</span>. Are you up for the challenge? Make sure to join our community through discord here: <a href='https://discord.gg/XsG5etY'>https://discord.gg/XsG5etY</a></p>
           <div className='gif-div'>
             <img src="/hideandseek.gif">
             </img>
             <div className='caption'>A game of Hide and Seek where the blue <span className='seeker'>Seekers</span> swiftly find the <span className='hider'>Hiders</span> and corner them</div>
           </div>
-          <p>For details on specs, code, and how the game works, check out the <a href='https://github.com/acmucsd/hide-and-seek-ai' target='_blank' rel="noopener noreferrer">github!</a>. We also love open source, feel free to contribute anything!</p>
+          <p>For details on specs, code, and how the game works, check out the <a href='https://github.com/acmucsd/hide-and-seek-ai' target='_blank' rel="noopener noreferrer">github!</a> We also love open source, feel free to contribute anything!</p>
         </div>
         <div className='main-section'>
           <h1 className='statement'>Ranking 📈</h1>

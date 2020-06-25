@@ -32,7 +32,7 @@ function SetupTournament(props: any) {
         setTournament(res);
       }).catch(() => {
         message.error('No tournament found with id ' + params.tournamentID);
-        history.push('../');
+        history.push('../../');
       });
     }
   }, []);
