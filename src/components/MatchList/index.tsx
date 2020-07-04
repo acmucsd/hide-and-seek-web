@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext, useCallback } from 'react';
 
 import './index.less';
 import { Match, Agent } from 'dimensions-ai';
@@ -8,6 +8,17 @@ import MatchActionButton from '../MatchActionButton';
 import UserContext from '../../UserContext';
 import { DIMENSION_ID } from '../../configs';
 import { downloadReplay } from '../../actions/tournament';
+import { getUrlForAgentLog } from '../../actions/match';
+
+
+
+export function useForceUpdate() {
+  const [, setTick] = useState(0);
+  const update = useCallback(() => {
+    setTick(tick => tick + 1);
+  }, [])
+  return update;
+}
 
 const MatchList = (props: 
   {
@@ -22,6 +33,9 @@ const MatchList = (props:
   const { user } = useContext(UserContext);
   const [ data, setData ] = useState<Array<any>>([]);
   const update = () => {};
+
+  const [ matchlogs, setMatchLogs ] = useState<Map<string, Array<{ url: string; agent: Agent; }>>>(new Map());
+  const forceUpdate = useForceUpdate();
   const matchLinkRender = (match: Match) => 
   {
     if (params.tournamentID) {
@@ -90,6 +104,22 @@ const MatchList = (props:
       }
     },
     {
+      title: 'Logs',
+      dataIndex: 'logs',
+      render: (match: Match) => {
+        return (
+          <>
+            {matchlogs.get(match.id) !== undefined ? matchlogs.get(match.id)!.map((info) => {
+            console.log(info);
+              return (
+              <a target='_blank' rel="noopener noreferrer" href={info.url}><div>{info.agent.name} logs</div></a>
+              );
+            }) : 'No results yet'}
+          </>
+        );
+      }
+    },
+    {
       title: 'Status',
       dataIndex: 'status',
     }
@@ -102,11 +132,26 @@ const MatchList = (props:
       return (<MatchActionButton match={match} update={update} dimensionID={DIMENSION_ID}/>)
     }
   }];
+  const fetchLogs = (match: Match) => {
+    let promises: Array<Promise<{url: string, agent: Agent}>> = [];
+    if (match.results) {
+      match.agents.forEach((agent) => {
+        let geturlpromise = getUrlForAgentLog(DIMENSION_ID, match.id, agent.id).then((res) => {return {url: res.url, agent: agent}});
+        promises.push(geturlpromise);
+      });
+    }
+    Promise.all(promises).then((info) => {
+      let newmatchlogs = matchlogs.set(match.id, info);
+      setMatchLogs(newmatchlogs);
+      forceUpdate();
+    });
+  }
   useEffect(() => {
     let newData: Array<any> = [];
     if (props.matches.length) {
       newData = (props.matches as Array<any>);
-      newData = newData.map((match) => {
+      newData = newData.map((match: Match) => {
+        fetchLogs(match);
         return {
           key: match.id,
           matchname: match,
@@ -115,7 +160,8 @@ const MatchList = (props:
           creationdate: match.creationDate,
           status: match.matchStatus,
           action: match,
-          replay: match
+          replay: match,
+          logs: match,
         }
       });
     }
@@ -126,6 +172,7 @@ const MatchList = (props:
       if (keys.length > 0) {
         for (let key in matches) {
           let match = matches[key];
+          fetchLogs(match);
           newData.push({
             key: key,
             matchname: match,
@@ -134,14 +181,15 @@ const MatchList = (props:
             creationdate: match.creationDate,
             status: match.matchStatus,
             action: match,
-            replay: match
+            replay: match,
+            logs: match,
           });
         }
         
       }
     }
     setData(newData);
-  }, [props.matches]);
+  }, [props.matches, matchlogs]);
   return (
     <div className={"MatchList " + props.className}>
       {
