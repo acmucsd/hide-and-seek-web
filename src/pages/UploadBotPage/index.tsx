@@ -21,7 +21,8 @@ function UploadBotPage() {
   const history = useHistory();
   const params: any = useParams();
   useEffect(() => {
-    !user.loggedIn && message.info('You need to login to upload a bot') && history.replace(path.join(window.location.pathname, '../../../login'));
+    message.info("upload disabled") && history.replace("/");
+    // !user.loggedIn && message.info('You need to login to upload a bot') && history.replace(path.join(window.location.pathname, '../../../login'));
   }, []);
   const onSubmit = (values: any) => {
     uploadBot(DIMENSION_ID, tournament.id, values.botname, botFile, user, values.path).then(() => {
