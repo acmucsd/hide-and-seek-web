@@ -110,7 +110,7 @@ function TournamentPage() {
   const [data, setData] = useState<any>([]);
   const update = () => {
     let rankSystem = tournament.configs.rankSystem;
-    setRankSystem(rankSystem);
+    setRankSystem(rankSystem!);
 
     getRanks(DIMENSION_ID, params.tournamentID).then((res) => {
       let newData = [];
