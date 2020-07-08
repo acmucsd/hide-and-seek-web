@@ -22,10 +22,11 @@ function MainPage() {
       <div className='Main'>
         <div className='hero'>
           <h1 id='title'>ACM AI Competition</h1>
-          <p className='subtext'>Closes on July 6th 11:59 PM PST</p>
+          <p className='subtext'>Congratulations to Joe Cai for winning the first AI Competition 🥇</p>
+          <p className='subtext'>And congratulations to Matei Gardus for winning the best hack award 💻</p>
           <div className='button-wrapper'>
+          <p className='text'>Competition has ended but you can still register for updates and for upcoming competitions!</p>   
           <Link to='register'><Button className='registerbtn'>Register</Button></Link>
-          <br />
           {
             OPEN_TO_PUBLIC && <a href='https://github.com/acmucsd/hide-and-seek-ai' target='_blank' rel="noopener noreferrer"><Button className='getstartedbtn'>Get Started</Button></a>
           }
@@ -34,7 +35,9 @@ function MainPage() {
         </div>
         <div className='main-section'>
           <h1 className='statement'>Welcome to Hide and Seek 🙈🏃</h1>
-          <p>You must use your wits and strategies, along with knowledge of programming, to effectively hide and see. Your AI must be able to play the <span className='seeker'>Seeker</span> and the <span className='hider'>Hider</span>, and must either find and tag all <span className='hider'>hiders</span> or hide from all <span className='seeker'>seekers</span>. Are you up for the challenge? Make sure to join our community through discord here: <a href='https://discord.gg/XsG5etY'>https://discord.gg/XsG5etY</a></p>
+          <p>This was the first ACM AI Competition, and the first of its kind at UCSD. You must use your wits and strategies, along with knowledge of programming, to effectively hide and see. Your AI must be able to play the <span className='seeker'>Seeker</span> and the <span className='hider'>Hider</span>, and must either find and tag all <span className='hider'>hiders</span> or hide from all <span className='seeker'>seekers</span>. Are you up for the challenge? Make sure to join our community through discord here: <a href='https://discord.gg/XsG5etY'>https://discord.gg/XsG5etY</a></p>
+          <br />
+          <p>The competition has concluded already, you can see final results <Link to={`/tournaments/${TOURNAMENT_ID}/ranks`}>here</Link>. Be sure to register to receive more updates and participate in future competitions!</p>
           <div className='gif-div'>
             <img src="/hideandseek.gif">
             </img>
@@ -43,6 +46,7 @@ function MainPage() {
           <p>For details on specs, code, and how the game works, check out the <a href='https://github.com/acmucsd/hide-and-seek-ai' target='_blank' rel="noopener noreferrer">github!</a> We also love open source, feel free to contribute anything!</p>
         </div>
         <div className='main-section'>
+          <h1 style={{color: "white"}}>Competition Info</h1>
           <h1 className='statement'>Ranking 📈</h1>
           <p>So you submitted your bot. What now? Check out <Link to={`/tournaments/${TOURNAMENT_ID}/ranks`}>the leaderboard</Link> to see how well your bot is doing! After submitting, you will need to give our servers some time to get around to scheduling matches for your bot.</p>
           <p>The way we rank players is through the Trueskill ranking system developed by Microsoft. You have 3 values associated with your ranking, a score, a mu (µ), and a sigma (σ)</p>

@@ -84,11 +84,11 @@ function Header() {
           Home
         </Link>
       </Menu.Item>
-      <Menu.Item key="tournament">
+      {/* <Menu.Item key="tournament">
         <Link to={`/tournaments/${TOURNAMENT_ID}`} rel="noopener noreferrer">
           Tournament
         </Link>
-      </Menu.Item>
+      </Menu.Item> */}
       <Menu.Item key="leaderboard">
         <Link to={`/tournaments/${TOURNAMENT_ID}/ranks`} rel="noopener noreferrer">
           Leaderboard

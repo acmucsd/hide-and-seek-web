@@ -71,11 +71,11 @@ function App() {
           <Route path="/dimensions/:id/matches/:matchID" exact component={MatchPage} />
 
           <TournamentProvider value={{tournament: tournament, setTournament: setTournament}}>
-            <Route 
+            {/* <Route 
               path="/tournaments/:tournamentID" 
               exact 
               render={() => <SetupTournament component={<TournamentPage />} />}
-            />
+            /> */}
             <Route 
               path="/tournaments/:tournamentID/ranks" 
               exact 
