@@ -1,16 +1,12 @@
 import React, { useEffect, useState, useContext } from 'react';
 import './index.less';
 import { Tournament } from 'dimensions-ai';
-import { useParams, Link, useHistory } from 'react-router-dom';
 import DefaultLayout from "../../components/layouts/default";
-import { getRanks } from '../../actions/tournament';
 import TournamentActionButton from '../../components/TournamentActionButton';
-import { Table, Button } from 'antd';
+import { Table } from 'antd';
 import UserContext from '../../UserContext';
-import TournamentContext from '../../contexts/tournament';
-import BackLink from '../../components/BackLink';
-import path from 'path';
-import { DIMENSION_ID, OPEN_TO_PUBLIC } from '../../configs';
+import { DIMENSION_ID } from '../../configs';
+import axios, { AxiosResponse } from 'axios';
 
 const trueskillCols = [
   {
@@ -97,52 +93,48 @@ const eloCols = [
 ]
 
 
-function TournamentPage() {
-  const history = useHistory();
+const TournamentRankingsPageHistorical = ({ dataDir }: { dataDir: string}) => {
   const [loading, setLoading] = useState(true);
   const [ updateTime, setUpdateTime ] = useState<Date>();
   const { user } = useContext(UserContext);
-  const { tournament } = useContext(TournamentContext);
-  const params: any = useParams();
-  // const [tournament, setTournament] = useState<Tournament>();
+  const [tournament, setTournament] = useState<Tournament>();
   //@ts-ignore
   const [ranksystem, setRankSystem] = useState<Tournament.RankSystem>('trueskill');
   const [data, setData] = useState<any>([]);
   const update = () => {
-    let rankSystem = tournament.configs.rankSystem;
-    setRankSystem(rankSystem!);
+    axios.get(`/data/${dataDir}/tournament.json`).then((res) => {
+      setTournament(res.data.tournament);
+      return res.data.tournament;
+    }).then((tournament) => {
+      console.log(tournament);
+      let rankSystem = tournament!.configs.rankSystem;
+      setRankSystem(rankSystem!);
 
-    getRanks(DIMENSION_ID, params.tournamentID).then((res) => {
-      let newData = [];
-      newData = res.map((info: any, ind: number) => {
-        return {
-          key: `${ind}`,
-          username: <Link to={`${path.join(window.location.pathname, `../user/${info.player.tournamentID.id}`)}`}>{info.player.username}</Link>,
-          pname: info.player.tournamentID.name,
-          score: info,
-          matchesPlayed: info.matchesPlayed
-        }
+      axios.get(`/data/${dataDir}/ranks.json`).then((res: AxiosResponse) => res.data.ranks).then((res) => {
+        let newData = [];
+        newData = res.map((info: any, ind: number) => {
+          return {
+            key: `${ind}`,
+            username: info.player.username,
+            pname: info.player.tournamentID.name,
+            score: info,
+            matchesPlayed: info.matchesPlayed
+          }
+        });
+        setData(newData);
+        setLoading(false);
+        setUpdateTime(new Date());
       });
-      setData(newData);
-      setLoading(false);
-      setUpdateTime(new Date());
     });
   }
   useEffect(() => {
     update();
-  }, [tournament, DIMENSION_ID, params.tournamentID]);
+  }, []);
   return (
     <DefaultLayout>
       <div className='TournamentRankingsPage'>
         <br />
-        {/* <BackLink to='../'/> */}
-        <h2>{tournament.name}</h2>
-        <Button onClick={() => {
-          history.push(path.join(history.location.pathname, '../upload'));
-        }} disabled>Upload Bot</Button>
-        <Button className='refresh-btn' onClick={() => {
-          update();
-        }}>Refresh Leaderboard</Button>
+        <h2>{tournament?.name}</h2>
         <br />
         <br />
         {
@@ -179,4 +171,4 @@ function TournamentPage() {
   );
 }
 
-export default TournamentPage
+export default TournamentRankingsPageHistorical

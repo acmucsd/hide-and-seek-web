@@ -21,5 +21,5 @@ export const defaultTournament: TournamentMeta = {
   log: '',
   name: '',
   status: null,
-  competitors: [],
+  competitors: new Map(),
 }

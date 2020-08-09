@@ -47,7 +47,7 @@ function TournamentPage() {
         }>Current Ranks</Link>
         <Button onClick={() => {
           history.push(path.join(history.location.pathname, 'upload'));
-        }} disabled={!OPEN_TO_PUBLIC}>Upload Bot</Button>
+        }} disabled>Upload Bot</Button>
         {
           tournament.id && user.admin &&
           <TournamentActionButton dimensionID={DIMENSION_ID} tournament={tournament} update={update}/>

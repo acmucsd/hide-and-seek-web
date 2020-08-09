@@ -4,7 +4,7 @@ import { Tournament, nanoid } from 'dimensions-ai';
 export interface TournamentMeta {
   configs: Partial<Tournament.TournamentConfigsBase>,
   id: nanoid,
-  competitors: Array<any>
+  competitors: Map<string, any>
   log: any,
   name: string,
   status: Tournament.Status | null

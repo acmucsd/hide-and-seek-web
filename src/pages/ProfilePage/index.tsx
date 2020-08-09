@@ -101,7 +101,7 @@ function ProfilePage() {
             <h4>Upload Bot</h4>
             <Button onClick={() => {
               history.push("../upload");
-            }} disabled={!OPEN_TO_PUBLIC}>Upload</Button>
+            }} disabled>Upload</Button>
             <h4>Download Bot</h4>
             <Button onClick={() => {
               downloadBot(DIMENSION_ID, tournament.id, params.userID).then((url) => {

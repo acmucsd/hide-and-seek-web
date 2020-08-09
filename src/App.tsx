@@ -13,6 +13,7 @@ import MainPage from './pages/MainPage';
 import MatchPage from './pages/MatchPage';
 import TournamentRankingsPage from './pages/TournamentRankingsPage';
 import TournamentPage from './pages/TournamentPage';
+import TournamentRankingsPageHistorical from './pages/TournamentRankingsPageHistorical';
 import TournamentMatchPage from './pages/TournamentMatchPage';
 import RegisterPage from './pages/Auth/RegisterPage';
 import LoginPage from './pages/Auth/LoginPage';
@@ -69,7 +70,9 @@ function App() {
           <Route path="/register" exact component={RegisterPage} />
           <Route path="/login" exact component={LoginPage} />
           <Route path="/dimensions/:id/matches/:matchID" exact component={MatchPage} />
-
+          <Route exact path="/tournaments/hide-and-seek2020" component={() => {
+            return <TournamentRankingsPageHistorical dataDir="2020summer"/>
+          }} />
           <TournamentProvider value={{tournament: tournament, setTournament: setTournament}}>
             {/* <Route 
               path="/tournaments/:tournamentID" 
