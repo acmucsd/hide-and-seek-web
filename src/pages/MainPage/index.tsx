@@ -28,7 +28,7 @@ function MainPage() {
           <h1 className='statement'>Welcome to Hide and Seek 🙈🏃</h1>
           <p>This was the first ACM AI Competition, and the first of its kind at UCSD. You must use your wits and strategies, along with knowledge of programming, to effectively hide and see. Your AI must be able to play the <span className='seeker'>Seeker</span> and the <span className='hider'>Hider</span>, and must either find and tag all <span className='hider'>hiders</span> or hide from all <span className='seeker'>seekers</span>. Are you up for the challenge? Make sure to join our community through discord here: <a href='https://discord.gg/XsG5etY'>https://discord.gg/XsG5etY</a></p>
           <br />
-          <p>The competition has concluded already, you can see final results <Link to={`/history/hide-and-seek2020`}>here</Link>. Be sure to register to receive more updates and participate in future competitions!</p>
+          <p>The competition has concluded already, you can see final results <Link to={`/history/hide-and-seek2020`}>here</Link> and checkout the <a href='https://medium.com/acmucsd/how-to-hide-from-ai-the-winner-interview-82a59aed5b0b' target='_blank' rel="noopener noreferrer">winner interview</a> with Joe Cai! Be sure to register to receive more updates and participate in future competitions!</p>
           <div className='gif-div'>
             <img src="/hideandseek.gif">
             </img>
