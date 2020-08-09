@@ -91,9 +91,12 @@ const eloCols = [
     dataIndex: 'matchesPlayed'
   }
 ]
+interface TournamentRankingsPageHistoricalProps {
+  dataDir: string;
+  description?: () => JSX.Element;
+}
 
-
-const TournamentRankingsPageHistorical = ({ dataDir }: { dataDir: string}) => {
+const TournamentRankingsPageHistorical = ({ dataDir, description }: TournamentRankingsPageHistoricalProps) => {
   const [loading, setLoading] = useState(true);
   const [ updateTime, setUpdateTime ] = useState<Date>();
   const { user } = useContext(UserContext);
@@ -106,7 +109,6 @@ const TournamentRankingsPageHistorical = ({ dataDir }: { dataDir: string}) => {
       setTournament(res.data.tournament);
       return res.data.tournament;
     }).then((tournament) => {
-      console.log(tournament);
       let rankSystem = tournament!.configs.rankSystem;
       setRankSystem(rankSystem!);
 
@@ -136,12 +138,9 @@ const TournamentRankingsPageHistorical = ({ dataDir }: { dataDir: string}) => {
         <br />
         <h2>{tournament?.name}</h2>
         <br />
+        {description && description()}
         <br />
-        {
-          tournament && user.admin && 
-          <TournamentActionButton dimensionID={DIMENSION_ID} tournament={tournament} update={update}/>
-        }
-        
+        <h3>Ranks</h3>
         { ranksystem === 'trueskill' && 
           <Table 
             loading={loading}

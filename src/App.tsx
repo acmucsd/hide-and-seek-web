@@ -24,6 +24,7 @@ import { getCookie } from './utils/cookie';
 import { verifyToken, getUserFromToken } from './actions/auth';
 import { DIMENSION_ID, COOKIE_NAME, defaultUser, defaultTournament } from './configs';
 import { message } from 'antd';
+import HideAndSeek2020 from './components/HistoricalCompetitionDescriptions/HideAndSeek2020';
 
 
 let cookie = getCookie(COOKIE_NAME);
@@ -70,8 +71,8 @@ function App() {
           <Route path="/register" exact component={RegisterPage} />
           <Route path="/login" exact component={LoginPage} />
           <Route path="/dimensions/:id/matches/:matchID" exact component={MatchPage} />
-          <Route exact path="/tournaments/hide-and-seek2020" component={() => {
-            return <TournamentRankingsPageHistorical dataDir="2020summer"/>
+          <Route exact path="/history/hide-and-seek2020" component={() => {
+            return <TournamentRankingsPageHistorical dataDir="2020summer" description={HideAndSeek2020}/>
           }} />
           <TournamentProvider value={{tournament: tournament, setTournament: setTournament}}>
             {/* <Route 
